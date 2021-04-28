@@ -51,6 +51,5 @@ function readSBML(fn::String;conversion_options=Dict())
     end
 end
 
-sbmlfile = joinpath("test", "reactionsystem_01.xml")
-# sbmlfile = "C:\\Users\\wolf5212\\OneDrive - Nexus365\\DPhil Project\\Programmes\\juliadev\\dev\\LCSB-BioCore\\SBML.jl\\test\\reactionsystem_01.xml"
+sbmlfile = joinpath(@__DIR__, "reactionsystem_01.xml")
 readSBML(sbmlfile;conversion_options=Dict("replaceReactions"=>nothing))
