@@ -1,3 +1,5 @@
+# This converter crashes
+
 using SBML_jll, Libdl
 
 sbml = (sym::Symbol) -> dlsym(SBML_jll.libsbml_handle, sym)
@@ -8,7 +10,7 @@ doc = ccall(sbml(:readSBML), VPtr, (Cstring,), sbmlfile)
 
 option = ccall(sbml(:ConversionOption_create), VPtr, (Cstring,), "promoteLocalParameters")
 option = ccall(sbml(:ConversionOption_setType), VPtr, (VPtr, Cint), option, 0)
-option = ccall(sbml(:ConversionOption_setValue), VPtr, (VPtr, Cint), option, 1)
+option = ccall(sbml(:ConversionOption_setValue), VPtr, (VPtr, CString), option, "true")
 option = ccall(sbml(:ConversionOption_setDescription), VPtr, (VPtr, Cstring), option, "Strip SBML Level 3 package constructs from the model")
 
 props = ccall(sbml(:ConversionProperties_create), VPtr, ())
