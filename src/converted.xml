@@ -203,6 +203,7 @@
           </COPASI>
         </annotation>
       </parameter>
+      <parameter id="reaction_1_k1" name="k1" value="0.1" constant="true"/>
     </listOfParameters>
     <listOfReactions>
       <reaction metaid="COPASI6" id="reaction" name="reaction" reversible="false" fast="false">
@@ -260,13 +261,10 @@
             <apply>
               <times/>
               <ci> c1 </ci>
-              <ci> k1 </ci>
+              <ci> reaction_1_k1 </ci>
               <ci> s3 </ci>
             </apply>
           </math>
-          <listOfLocalParameters>
-            <localParameter id="k1" name="k1" value="0.1"/>
-          </listOfLocalParameters>
         </kineticLaw>
       </reaction>
       <reaction metaid="COPASI10" id="reaction_2" name="reaction_2" reversible="false" fast="false">
